@@ -1,0 +1,16 @@
+{
+    "text.autoconfig.player-vehicle-desync-fix.title": "Player Vehicle Desync Fix Config",
+    "text.autoconfig.player-vehicle-desync-fix.category.server": "Server",
+    "text.autoconfig.player-vehicle-desync-fix.category.client": "Client",
+    "text.autoconfig.player-vehicle-desync-fix.option.sendEntityPassengersSetS2CPacketOnDesyncFoundInServer": "sendEntityPassengersSetS2CPacketOnDesyncFoundInServer",
+    "text.autoconfig.player-vehicle-desync-fix.option.sendEntityPassengersSetS2CPacketOnDesyncFoundInServer.@Tooltip": "Send sychronization packet to client when desync found on server side",
+    "text.autoconfig.player-vehicle-desync-fix.option.logOnDesyncFoundInServer": "logOnDesyncFoundInServer",
+    "text.autoconfig.player-vehicle-desync-fix.option.logOnDesyncFoundInServer.@Tooltip": "Print log if desync found on server side",
+    "text.autoconfig.player-vehicle-desync-fix.option.cancelStartRidingIfVehicleToRideIsTooFarAwayInClient": "cancelStartRidingIfVehicleToRideIsTooFarAwayInClient",
+    "text.autoconfig.player-vehicle-desync-fix.option.cancelStartRidingIfVehicleToRideIsTooFarAwayInClient.@Tooltip[0]": "Whether to ignore sychronization packet if vehicle to ride is too far away from player on client side",
+    "text.autoconfig.player-vehicle-desync-fix.option.cancelStartRidingIfVehicleToRideIsTooFarAwayInClient.@Tooltip[1]": "Would result in undesired teleport if player just rides the vehicle that is too far away",
+    "text.autoconfig.player-vehicle-desync-fix.option.expandAmountForFindingVehicleNearby": "expandAmountForFindingVehicleNearby",
+    "text.autoconfig.player-vehicle-desync-fix.option.expandAmountForFindingVehicleNearby.@Tooltip": "How far to check whether vehicle to ride is sufficiently close to player on client side",
+    "text.autoconfig.player-vehicle-desync-fix.option.logOnVehicleToRideIsTooFarAwayInClient": "logOnVehicleToRideIsTooFarAwayInClient",
+    "text.autoconfig.player-vehicle-desync-fix.option.logOnVehicleToRideIsTooFarAwayInClient.@Tooltip": "Print log if vehicle to ride is too far away from player on client side"
+}
