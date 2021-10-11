@@ -1,3 +1,7 @@
+#### v0.1.3 (2021-10-12)
+
+Fix NoSuchField error for config.
+
 #### v0.1.2 (2021-10-12)
 
 First non alpha release.

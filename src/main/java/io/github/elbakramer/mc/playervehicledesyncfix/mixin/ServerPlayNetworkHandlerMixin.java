@@ -22,21 +22,20 @@ import io.github.elbakramer.mc.playervehicledesyncfix.util.PlayerVehicleDesyncFi
 @Mixin(ServerPlayNetworkHandler.class)
 public class ServerPlayNetworkHandlerMixin {
 
-    private static final Logger MOD_LOGGER = PlayerVehicleDesyncFixMod.LOGGER;
-    private PlayerVehicleDesyncFixModConfig config = AutoConfig.getConfigHolder(PlayerVehicleDesyncFixModConfig.class)
-            .getConfig();
-
     @Final
     @Shadow
     public ServerPlayerEntity player;
 
     @Inject(method = "onPlayerMove", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerChunkManager;updatePosition(Lnet/minecraft/server/network/ServerPlayerEntity;)V", shift = At.Shift.AFTER, ordinal = 0))
     private void onPlayerMoveWithHavingVehicle(PlayerMoveC2SPacket packet, CallbackInfo ci) {
+        Logger LOGGER = PlayerVehicleDesyncFixMod.LOGGER;
+        PlayerVehicleDesyncFixModConfig config = AutoConfig.getConfigHolder(PlayerVehicleDesyncFixModConfig.class)
+                .getConfig();
         boolean hasVehicleOnServerSide = player.hasVehicle();
         boolean hasVehicleOnClientSide = !packet.isOnGround() && !packet.changesPosition() && packet.changesLook();
         if (hasVehicleOnServerSide && !hasVehicleOnClientSide) {
             if (config.logOnDesyncFoundInServer) {
-                MOD_LOGGER.warn("[PlayerVehicleDesyncFix] Vehicle desync found for player {} and vehicle {}!",
+                LOGGER.warn("[PlayerVehicleDesyncFix] Vehicle desync found for player {} and vehicle {}!",
                         player.getName().getString(), player.getVehicle().getName().getString());
             }
             if (config.sendEntityPassengersSetS2CPacketOnDesyncFoundInServer) {
