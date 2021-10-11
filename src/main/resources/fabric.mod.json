@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "id": "player-vehicle-desync-fix",
-  "version": "0.1.0",
+  "version": "${version}",
   "name": "Player Vehicle Desync Fix",
   "description": "Fixes desync on player.hasVehicle() between server and client.",
   "authors": [
     "Yunseong Hwang"
   ],
   "contact": {
-    "homepage": "https://github.com/elbakramer/player-vehicle-desync-fix",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/player-vehicle-desync-fix",
     "issues": "https://github.com/elbakramer/player-vehicle-desync-fix/issues",
     "sources": "https://github.com/elbakramer/player-vehicle-desync-fix"
   },

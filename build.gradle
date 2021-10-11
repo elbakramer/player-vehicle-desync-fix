@@ -95,15 +95,19 @@ publishing {
 
 def curseforgeProps = new Properties()
 
-file("curseforge.properties").withInputStream {
-	stream -> curseforgeProps.load(stream)
+file("curseforge.properties").with { it ->
+	if (it.exists()) {
+		it.withInputStream { stream ->
+			curseforgeProps.load(stream)
+		}
+	}
 }
 
 curseforge {
-	apiKey = curseforgeProps.get('apiKey')
+	apiKey = curseforgeProps.getProperty('apiKey', '')
 	project {
 		id = '535864'
-		releaseType = 'alpha'
+		releaseType = 'release'
 
 		changelogType = 'markdown'
 		changelog = file('CHANGELOG.md')
@@ -114,6 +118,8 @@ curseforge {
 
 		relations {
 			requiredLibrary 'fabric-api'
+			requiredLibrary 'cloth-config'
+			requiredLibrary 'modmenu'
 		}
 
 		mainArtifact(remapJar) {
