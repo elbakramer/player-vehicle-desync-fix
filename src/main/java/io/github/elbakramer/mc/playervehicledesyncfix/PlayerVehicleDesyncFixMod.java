@@ -5,9 +5,6 @@ import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
-
 import io.github.elbakramer.mc.playervehicledesyncfix.util.PlayerVehicleDesyncFixModConfig;
 
 public class PlayerVehicleDesyncFixMod implements ModInitializer {
@@ -21,7 +18,7 @@ public class PlayerVehicleDesyncFixMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		AutoConfig.register(PlayerVehicleDesyncFixModConfig.class, JanksonConfigSerializer::new);
+		PlayerVehicleDesyncFixModConfig.register();
 		LOGGER.info("[PlayerVehicleDesyncFix] Mod Initialized.");
 	}
 }

@@ -1,3 +1,7 @@
+#### v0.2.0 (2021-10-14)
+
+Added an option for ignoring desync in a very short time.
+
 #### v0.1.3 (2021-10-12)
 
 Fix NoSuchField error for config.
