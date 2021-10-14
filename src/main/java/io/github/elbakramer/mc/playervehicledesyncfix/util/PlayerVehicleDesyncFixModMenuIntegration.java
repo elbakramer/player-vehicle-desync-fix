@@ -7,7 +7,7 @@ public class PlayerVehicleDesyncFixModMenuIntegration implements ModMenuApi {
 
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> PlayerVehicleDesyncFixModConfig.getConfigScreen(parent).get();
+        return parent -> PlayerVehicleDesyncFixModConfigManager.getConfigScreen(parent).get();
     }
 
 }

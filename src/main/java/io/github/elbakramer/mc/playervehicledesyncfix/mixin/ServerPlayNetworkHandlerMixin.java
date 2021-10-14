@@ -17,6 +17,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 
 import io.github.elbakramer.mc.playervehicledesyncfix.PlayerVehicleDesyncFixMod;
 import io.github.elbakramer.mc.playervehicledesyncfix.util.PlayerVehicleDesyncFixModConfig;
+import io.github.elbakramer.mc.playervehicledesyncfix.util.PlayerVehicleDesyncFixModConfigManager;
 
 @Mixin(ServerPlayNetworkHandler.class)
 public class ServerPlayNetworkHandlerMixin {
@@ -34,7 +35,7 @@ public class ServerPlayNetworkHandlerMixin {
         boolean hasVehicleOnClientSide = !packet.isOnGround() && !packet.changesPosition() && packet.changesLook();
         if (hasVehicleOnServerSide && !hasVehicleOnClientSide) {
             Logger LOGGER = PlayerVehicleDesyncFixMod.LOGGER;
-            PlayerVehicleDesyncFixModConfig config = PlayerVehicleDesyncFixModConfig.getConfig();
+            PlayerVehicleDesyncFixModConfig config = PlayerVehicleDesyncFixModConfigManager.getConfig();
             boolean desyncTicksExeedsLimit = ++vehicleDesyncTicks > config.vehicleDesyncTicksLimit;
             if (config.logOnDesyncFoundInServer || (config.logOnDesyncTicksExceedLimit && desyncTicksExeedsLimit)) {
                 LOGGER.warn(

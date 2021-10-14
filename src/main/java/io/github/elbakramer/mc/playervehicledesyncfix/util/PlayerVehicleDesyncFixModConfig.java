@@ -1,14 +1,8 @@
 package io.github.elbakramer.mc.playervehicledesyncfix.util;
 
-import java.util.function.Supplier;
-
-import net.minecraft.client.gui.screen.Screen;
-
-import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 
 @Config(name = "player-vehicle-desync-fix")
 public class PlayerVehicleDesyncFixModConfig implements ConfigData {
@@ -40,17 +34,5 @@ public class PlayerVehicleDesyncFixModConfig implements ConfigData {
     @ConfigEntry.Category("client")
     @ConfigEntry.Gui.Tooltip
     public boolean logOnVehicleToRideIsTooFarAwayInClient = true;
-
-    public static void register() {
-        AutoConfig.register(PlayerVehicleDesyncFixModConfig.class, JanksonConfigSerializer::new);
-    }
-
-    public static PlayerVehicleDesyncFixModConfig getConfig() {
-        return AutoConfig.getConfigHolder(PlayerVehicleDesyncFixModConfig.class).getConfig();
-    }
-
-    public static Supplier<Screen> getConfigScreen(Screen parent) {
-        return AutoConfig.getConfigScreen(PlayerVehicleDesyncFixModConfig.class, parent);
-    }
 
 }

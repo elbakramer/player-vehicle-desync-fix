@@ -15,6 +15,7 @@ import net.minecraft.entity.Entity;
 import io.github.elbakramer.mc.playervehicledesyncfix.PlayerVehicleDesyncFixMod;
 import io.github.elbakramer.mc.playervehicledesyncfix.util.EntityUtils;
 import io.github.elbakramer.mc.playervehicledesyncfix.util.PlayerVehicleDesyncFixModConfig;
+import io.github.elbakramer.mc.playervehicledesyncfix.util.PlayerVehicleDesyncFixModConfigManager;
 
 @Mixin(ClientPlayNetworkHandler.class)
 public class ClientPlayNetworkHandlerMixin {
@@ -27,7 +28,7 @@ public class ClientPlayNetworkHandlerMixin {
     private boolean onEntityPassengersSetStartRiding(Entity passenger, Entity vehicle, boolean forceRiding) {
         if (passenger == this.client.player) {
             Logger LOGGER = PlayerVehicleDesyncFixMod.LOGGER;
-            PlayerVehicleDesyncFixModConfig config = PlayerVehicleDesyncFixModConfig.getConfig();
+            PlayerVehicleDesyncFixModConfig config = PlayerVehicleDesyncFixModConfigManager.getConfig();
             boolean canFindVehicleNearby = EntityUtils.checkIfEntityIsAroundEntity(vehicle, passenger,
                     config.expandAmountForFindingVehicleNearby);
             if (!canFindVehicleNearby) {
