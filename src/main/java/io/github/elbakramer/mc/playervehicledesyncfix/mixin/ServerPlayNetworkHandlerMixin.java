@@ -22,12 +22,6 @@ import io.github.elbakramer.mc.playervehicledesyncfix.util.PlayerVehicleDesyncFi
 public class ServerPlayNetworkHandlerMixin {
 
     @Unique
-    private static final Logger LOGGER = PlayerVehicleDesyncFixMod.LOGGER;
-
-    @Unique
-    private PlayerVehicleDesyncFixModConfig config = PlayerVehicleDesyncFixModConfig.getConfig();
-
-    @Unique
     private int vehicleDesyncTicks = 0;
 
     @Final
@@ -39,6 +33,8 @@ public class ServerPlayNetworkHandlerMixin {
         boolean hasVehicleOnServerSide = player.hasVehicle();
         boolean hasVehicleOnClientSide = !packet.isOnGround() && !packet.changesPosition() && packet.changesLook();
         if (hasVehicleOnServerSide && !hasVehicleOnClientSide) {
+            Logger LOGGER = PlayerVehicleDesyncFixMod.LOGGER;
+            PlayerVehicleDesyncFixModConfig config = PlayerVehicleDesyncFixModConfig.getConfig();
             boolean desyncTicksExeedsLimit = ++vehicleDesyncTicks > config.vehicleDesyncTicksLimit;
             if (config.logOnDesyncFoundInServer || (config.logOnDesyncTicksExceedLimit && desyncTicksExeedsLimit)) {
                 LOGGER.warn(

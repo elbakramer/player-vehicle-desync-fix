@@ -1,3 +1,7 @@
+#### v0.2.1 (2021-10-14)
+
+Put most fields in mixins to inside the methods back for the maximum mod compatibility.
+
 #### v0.2.0 (2021-10-14)
 
 Added an option for ignoring desync in a very short time.
